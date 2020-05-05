@@ -5,10 +5,12 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-  local: # build local image
-    push: false #do not push to hub
+  # local: # build local image
+  #   push: false #do not push to hub
+  googleCloudBuild:
+    projectId: effective-tea-276310
   artifacts:
-    - image: penio/auth
+    - image: us.gcr.io/effective-tea-276310/auth #gcoud require that type of naming, this conflicts with docker repo
       context: auth
       docker:
         dockerfile: Dockerfile
