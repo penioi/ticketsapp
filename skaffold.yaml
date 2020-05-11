@@ -18,3 +18,11 @@ build:
         manual:
           - src: 'src/**/*.js'
             dest: .
+    - image: penio/client #us.gcr.io/effective-tea-276310/auth #gcoud require that type of naming, this conflicts with docker repo
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .

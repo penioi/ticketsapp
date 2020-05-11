@@ -5,14 +5,11 @@ export class BadRequestError extends CustomError {
 
   constructor(public message: string) {
     super(message);
-    Object.setPrototypeOf(this, BadRequestError);
+
+    Object.setPrototypeOf(this, BadRequestError.prototype);
   }
 
   serialzeErrors() {
-    return [
-      {
-        message: this.message,
-      },
-    ];
+    return [{ message: this.message }];
   }
 }
