@@ -17,5 +17,5 @@ it('responds with null is not authenicated', async () => {
     .get('/api/users/currentUser')
     .send({})
     .expect(200);
-  expect(response.body.currentUser).toEqual(null);
+  expect(response.body.currentUser).toBeUndefined();
 });
