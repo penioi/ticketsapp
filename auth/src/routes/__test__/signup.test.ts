@@ -1,5 +1,6 @@
 import request from 'supertest';
 import { app } from '../../app';
+import { response } from 'express';
 
 it('Returns 201 on successfull signup', async () => {
   return request(app)
@@ -39,4 +40,32 @@ it('Returns 400 on empty request', async () => {
       password: '',
     })
     .expect(400);
+});
+
+it('Dissallows duplicate emails', async () => {
+  await request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'duplicate@test.com',
+      password: 'asssf',
+    })
+    .expect(201);
+  await request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'duplicate@test.com',
+      password: 'assssf',
+    })
+    .expect(400);
+});
+
+it('sets a coockie on successfull signup', async () => {
+  const response = await request(app)
+    .post('/api/users/signup')
+    .send({
+      email: 'test@test.com',
+      password: 'secret',
+    })
+    .expect(201);
+  expect(response.get('Set-Cookie')).toBeDefined();
 });

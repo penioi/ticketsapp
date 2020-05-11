@@ -13,7 +13,6 @@ export const errorHandler = (
     return res.status(err.statusCode).send({ errors: err.serialzeErrors() });
   }
 
-  console.log('Somenting went wrong', err);
   res.status(400).send({
     message: err.message,
   });
