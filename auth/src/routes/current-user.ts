@@ -1,6 +1,5 @@
 import express from 'express';
-import { currentUser } from '../middlewares/current-users';
-import { requireAuth } from '../middlewares/requireAuth';
+import { currentUser } from '@pitickets/common';
 
 const router = express.Router();
 

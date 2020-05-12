@@ -1,6 +1,5 @@
 import mongoose, { mongo, connect } from 'mongoose';
 import { app } from './app';
-import { BadRequestError } from '@pitickets/common/build';
 
 const start = async () => {
   if (!process.env.JWT_KEY) {

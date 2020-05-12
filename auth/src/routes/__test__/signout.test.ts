@@ -1,7 +1,7 @@
 import request from 'supertest';
 import { app } from '../../app';
 import { response } from 'express';
-import { requireAuth } from '../../middlewares/requireAuth';
+import { requireAuth } from '@pitickets/common';
 
 it('clears the cookie after signout', async () => {
   await request(app)

@@ -2,11 +2,6 @@ import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
-
-import { currentUserRouter } from './routes/current-user';
-import { signinRouter } from './routes/signin';
-import { signoutRouter } from './routes/signout';
-import { signupRouter } from './routes/signup';
 import { errorHandler, NotFoundError } from '@pitickets/common';
 
 const app = express();
@@ -15,14 +10,9 @@ app.use(json());
 app.use(
   cookieSession({
     signed: false,
-    secure: false, // process.env.NODE_ENV !== 'test', // check if running test
+    secure: process.env.NODE_ENV !== 'test', // check if running test
   })
 );
-
-app.use(currentUserRouter);
-app.use(signupRouter);
-app.use(signinRouter);
-app.use(signoutRouter);
 
 app.get('*', async () => {
   throw new NotFoundError();
