@@ -1,16 +1,16 @@
 {
   "name": "@pitickets/common",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
-    "**/*"
+    "build"
   ],
   "scripts": {
     "clean": "del-cli ./build/*",
     "build": "npm run clean && tsc",
-    "pub": "git add . && git commit -m\"publish updates\" && npm version patch && npm run build && cp package.json ./build && cd ./build && npm publish"
+    "pub": "git add . && git commit -m\"publish updates\" && npm version patch && npm run build && npm publish"
   },
   "keywords": [],
   "author": "",
