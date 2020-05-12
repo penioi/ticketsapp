@@ -1,11 +1,11 @@
 {
   "name": "@pitickets/common",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
-    "build/**/*"
+    "./build/**/*"
   ],
   "scripts": {
     "clean": "del-cli ./build/*",
